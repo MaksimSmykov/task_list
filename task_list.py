@@ -8,6 +8,11 @@ from add_methods import check_status, convert_to_bool, print_common_info
 task_list = []
 priority_color = "#F0E68C"
 
+def time_split(str_):
+    split_line = []
+    split_line = str_.split(':')
+    return f'{split_line[0]}:{split_line[1]}'
+
 def print_task_info(task):
     status = check_status(task)
     print(task)
@@ -35,6 +40,7 @@ def open_txt():
         for line in lines:
             line = line[:-1]
             split_line = line.split(',')
+            print(split_line)
             try:
                 task = {
                     'name': split_line[0],  # Название задачи
@@ -48,6 +54,10 @@ def open_txt():
                     'priority': split_line[1],  # Приоритет задачи
                     'completed': convert_to_bool(split_line[2]),  # Статус выполнения задачи (изначально False)
                 }
+            try:
+                task['time'] = split_line[4]
+            except IndexError:
+                pass
             task_list.append(task)  # Добавление задачи в список задач
             show_tasks_list()
         text_file.close()
@@ -62,6 +72,8 @@ def write_txt():
                 for value in task.values():
                     if isinstance(value, boolean):
                         new_list.append(str(value))
+                    elif len(value) == 0:
+                        pass
                     else:
                         new_list.append(value)
                 new_str = ','.join(new_list)
@@ -79,14 +91,14 @@ def show_tasks_list():
     for index, task in enumerate(task_list):  # Цикл по всем задачам
         # Определение статуса задачи в зависимости от того, завершена она или нет
         status = check_status(task)
-        try:
-            _list.insert('end',
-                         f'{index + 1}. {task["name"]} | Приоритет: [{task["priority"]}] | '
-                         f'Статус: {status} | Доп. информация: {task["additional"]}')  # Вывод информации о задаче
-        except KeyError:
-            _list.insert('end',
-                         f'{index + 1}. {task["name"]} | Приоритет: [{task["priority"]}] | '
-                         f'Статус: {status}')  # Вывод информации о задаче
+        task_info = f'{index + 1}. {task["name"]} | Приоритет: [{task["priority"]}] | Статус: {status}'
+        if not task['additional'].isspace():
+            task_info +=  f' | Доп. информация: {task["additional"]}'
+        if 'time' in task:
+            task_info += f' | Время: {time_split(task['time'])}'
+
+        _list.insert('end',task_info)  # Вывод информации о задаче
+
         if task["priority"] == 'Высокий':
             new_color = check_color()
             _list.itemconfig(index, background=new_color)
@@ -98,26 +110,22 @@ def add_task():
     - *args: дополнительные параметры задачи, переданные как позиционные аргументы
     - priority: приоритет задачи (по умолчанию 'Normal')
     """
-    if len(textbox_task_add.get()) > 0:
-        task = {
-            'name': textbox_add.get(),  # Название задачи
-            'priority': combobox_priority.get(),  # Приоритет задачи
-            'completed': False,  # Статус выполнения задачи (изначально False)
-            'additional': textbox_task_add.get(),  # Сохранение дополнительных параметров в виде кортежа
-        }
+    task = {
+        'name': textbox_name.get(),  # Название задачи
+        'priority': combobox_priority.get(),  # Приоритет задачи
+        'completed': False,  # Статус выполнения задачи (изначально False)
+    }
+    if textbox_add_info.get() == '' or textbox_add_info.get().isspace() == True:
+        task['additional'] = ' '
     else:
-        task = {
-            'name': textbox_add.get(),  # Название задачи
-            'priority': combobox_priority.get(),  # Приоритет задачи
-            'completed': False,  # Статус выполнения задачи (изначально False)
-        }
-    if enabled_time == 1:
-        task['time'] = hour.get() + minute.get()
-    if textbox_add.get() and combobox_priority.get():
+        task['additional'] = textbox_add_info.get()
+    if enabled_time.get() == 1:
+        task['time'] = hour.get() + ':' + minute.get()
+    if textbox_name.get() and combobox_priority.get():
         task_list.append(task)  # Добавление задачи в список задач
     show_tasks_list()
-    textbox_add.delete(0, 'end')
-    textbox_task_add.delete(0, 'end')
+    textbox_name.delete(0, 'end')
+    textbox_add_info.delete(0, 'end')
     write_txt()
 
 
@@ -235,12 +243,12 @@ label_textbox = tk.Label(canvas_create, text='Введите новую зада
 label_textbox.grid(row=0, column=0, columnspan=4, padx=0, pady=10)
 label_task_name = tk.Label(canvas_create, text='Название\nзадачи:')
 label_task_name.grid(row=1, column=0, padx=20, pady=0)
-textbox_add = tk.Entry(canvas_create, width=40)
-textbox_add.grid(row=1, column=1, columnspan=2, padx=10)
+textbox_name = tk.Entry(canvas_create, width=40)
+textbox_name.grid(row=1, column=1, columnspan=2, padx=10)
 label_task_add = tk.Label(canvas_create, text='Дополнительная информация:')
 label_task_add.grid(row=2, column=0, columnspan=3, padx=5, pady=5)
-textbox_task_add = tk.Entry(canvas_create, width=40)
-textbox_task_add.grid(row=3, column=0, columnspan=3, pady=5)
+textbox_add_info = tk.Entry(canvas_create, width=40)
+textbox_add_info.grid(row=3, column=0, columnspan=3, pady=5)
 
 label_task_priority = tk.Label(canvas_create, text='Приоритет\nзадачи:')
 label_task_priority.grid(row=4, column=0, padx=20, pady=0)
