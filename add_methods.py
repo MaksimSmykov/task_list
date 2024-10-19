@@ -13,3 +13,4 @@ def convert_to_bool(str_):
 def print_common_info(entry, delete_start, delete_end, insert_start, insert_info):
     entry.delete(delete_start, delete_end)
     entry.insert(insert_start, insert_info)
+
