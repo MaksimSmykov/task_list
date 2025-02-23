@@ -1,0 +1,57 @@
+﻿word;rus;eng
+Task list v2.2;Список задач v2.2;Task list v2.2
+Task list;Список задач;Task list
+Enter a new task;Введите новую задачу;Enter a new task
+Task name;Название задачи;Task name
+Additional information;Дополнительная информация;Additional information
+Task priority;Приоритет задачи;Task priority
+Low;Низкий;Low
+Medium;Средний;Medium
+High;Высокий;High
+Choose color;Выбрать цвет;Choose color
+Time;Время;Time
+Time:;Время:;Time:
+Date:;Дата:;Date:
+Date;Дата;Date
+Add task;Добавить задачу;Add task
+Enter number or contained word:;Введите номер или содержащееся слово:;Enter number or contained word:
+Delete by number;Удалить по номеру;Delete by number
+Search by number;Найти по номеру;Search by number
+Complete by number;Выполнить по номеру;Complete by number
+Search by word;Найти по слову;Search by word
+Delete completed;Удалить выполненные;Delete completed
+Rename;Переименовать;Rename
+Result:;Результат:;Result:
+Pick a date;Выбрать дату;Pick a date
+Pick a date;Выберите дату;Pick a date
+en_US;ru_RU;en_US
+Select the color of high-priority tasks;Выберите цвет задач с высоким приоритетом;Select the color of high-priority tasks
+Task number;Задача номер;Task number
+completed;выполнена;completed
+already completed;уже выполнена;already completed
+There is no task with that number!;Задачи с таким номером нет!;There is no task with that number!
+You've entered a negative number or non-number in the search string!;Вы ввели отрицательное число или не число в строку для поиска!;You've entered a negative number or non-number in the search string!
+Priority;Приоритет;Priority
+Status;Статус;Status
+Add. information;Доп. информация;Add. information
+Tasks not found!;Задачи не найдены!;Tasks not found!
+Found a task:;Найдена задача:;Found a task:
+Task;Задача;Task
+is renamed;переименована;is renamed
+Rename task;Переименовать задачу;Rename task
+Renaming;Переименование;Renaming
+Task number;Номер задачи;Task number
+New name;Новое название;New name
+All completed tasks are deleted. Quantity;Все выполненные задачи удалены. Количество;All completed tasks are deleted. Quantity
+is deleted;удалена;is deleted
+No tasks;Задач нет;No tasks
+Now;Сейчас;Now
+Today;Сегодня;Today
+Reminder;Напоминание;Reminder
+Time to do the tasks;Время выполнять задания;Time to do the tasks
+Language change;Изменение языка;Language change
+Reboot the application to change settings;Перезагрузите приложение,чтобы изменения вступили в силу;Reboot the application to change settings
+Language;Язык;Language
+About;О программе;About
+Completed;Выполнено;Completed
+In progress;В процессе;In progress

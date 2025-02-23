@@ -1,0 +1,5 @@
+"Task list" is my first big multifunctional task list application.
+Made in Python using the tkinter library.
+
+
+© Maksim Smykov, 2024-2025
