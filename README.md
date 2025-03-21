@@ -14,7 +14,7 @@
 > - `config.ini`
 > - `favicon.ico`
 > - `languages.csv`
-> - 
+
 ### Adding tasks
 > The `Task name` field is required to add a task.
 > Also, do not forget to specify the `Task priority`, because this parameter will be specified automatically based on the selected item.
