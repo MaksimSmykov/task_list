@@ -4,6 +4,9 @@
 
 # Task list (Python 3.12, Tkinter)
 
+"Task list" is a multifunctional task list application for Windows.
+Made in Python using the tkinter library.
+
 ## Instructions
 
 ### Launch
