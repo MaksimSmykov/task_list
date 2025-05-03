@@ -7,6 +7,15 @@
 "Task list" is a multifunctional task list application for Windows.
 Made in Python using the tkinter library.
 
+# Download
+<ul>
+  <li>
+    <strong>
+      <a href='https://github.com/MaksimSmykov/task_list/releases/tag/v2.2'>Task list v2.2 (Windows)</a>
+    </strong>
+  </li>
+</ul>
+
 ## Instructions
 
 ### Launch
